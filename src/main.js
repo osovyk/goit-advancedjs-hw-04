@@ -36,7 +36,10 @@ async function onSearch(e) {
 
     renderImages(data, { append: false });
 
-    if (currentPage * 15 < totalHits) {
+    if (totalHits <= 15) {
+      loadMoreBtn.style.display = 'none';
+    }
+    else if (currentPage * 15 < totalHits) {
       loadMoreBtn.style.display = 'block';
       loadMoreBtn.disabled = false;
       loadMoreBtn.textContent = "Load more...";
